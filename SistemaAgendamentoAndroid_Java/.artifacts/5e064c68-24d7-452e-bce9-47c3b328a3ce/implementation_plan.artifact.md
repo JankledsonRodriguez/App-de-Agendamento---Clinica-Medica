@@ -1,42 +1,43 @@
-# Plano de Implementação: Correção de Segurança e Limpeza do Git
+# Plano de Implementação: Configuração do Ícone Oficial do App
 
-Este plano visa resolver o bloqueio de "Push Protection" do GitHub, que ocorreu devido à detecção de senhas no histórico de commits e à presença de arquivos temporários de build no repositório.
+Este plano visa substituir o ícone padrão do Android pelo ícone personalizado do **Clinique+**, utilizando a imagem do médico (emoji) fornecida pelo usuário, garantindo uma identidade visual consistente desde a tela de início do celular.
 
 ## User Review Required
 
-> [!CAUTION]
-> O GitHub bloqueou o seu envio porque detectou uma **senha real** (provavelmente do serviço Aiven) no arquivo `DatabaseConfig.java`. Mesmo que você mude o arquivo agora, a senha continua salva no "passado" do seu Git (nos commits anteriores).
-
 > [!IMPORTANT]
-> Além da senha, pastas como `build/`, `.gradle/` e `.idea/` estão sendo enviadas para o GitHub. Isso é uma prática incorreta que deixa o repositório pesado e causa erros de compilação para outras pessoas.
+> Atualmente, o seu arquivo `AndroidManifest.xml` não possui nenhuma configuração de ícone, o que faz o sistema Android exibir o robô verde padrão. Vamos ativar essa configuração agora.
 
 ## Proposed Changes
 
-### [Git & Configuração]
+### [Recursos de Imagem]
 
-#### [NEW] [.gitignore](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/.gitignore)
-- Criar o arquivo de ignorar padrão para Android/Java.
-- Impedir que as pastas `build/`, `.gradle/`, `.idea/` e arquivos como `local.properties` sejam rastreados.
+#### [NEW] [ic_launcher_background.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_background.xml)
+- Definir um fundo branco limpo para o ícone adaptativo.
 
-#### [MODIFY] [DatabaseConfig.java](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/java/com/example/agendamento/database/DatabaseConfig.java)
-- Garantir que não existam senhas reais no código.
-- Recomendação: O usuário deve inserir a senha manualmente no código localmente, mas nunca enviá-la para o GitHub.
+#### [NEW] [ic_launcher_foreground.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_foreground.xml)
+- Um arquivo XML que encapsula a imagem `ic_doctor_profile` para centralizá-la corretamente no ícone.
 
-### [Limpeza de Rastro (Ações Manuais Necessárias)]
+---
 
-Para resolver o erro de commit bloqueado, você precisará executar alguns comandos no terminal do Android Studio, pois eu não posso reescrever o seu histórico de commits local:
+### [Configuração do Ícone (Mipmap)]
 
-1. **Remover arquivos indesejados do cache do Git:**
-   `git rm -r --cached .`
-   `git add .`
-   `git commit -m "Limpeza de arquivos de build e adicao de .gitignore"`
+#### [NEW] [ic_launcher.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
+- Definir o ícone adaptativo (Foreground + Background) para versões modernas do Android.
 
-2. **Remover o segredo do histórico (Opção Simples):**
-   Como o push foi rejeitado, a forma mais fácil é fazer um "Soft Reset" para antes do commit problemático, remover a senha, e fazer um novo commit limpo.
+#### [NEW] [ic_launcher_round.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
+- Definir a versão arredondada do ícone.
+
+---
+
+### [Manifesto]
+
+#### [MODIFY] [AndroidManifest.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/AndroidManifest.xml)
+- Adicionar os atributos `android:icon="@mipmap/ic_launcher"` e `android:roundIcon="@mipmap/ic_launcher_round"` na tag `<application>`.
 
 ## Verification Plan
 
 ### Manual Verification
-1. Criar o `.gitignore`.
-2. Verificar se a pasta `build/` parou de aparecer como "verde" ou "rastreada" no Git.
-3. Tentar realizar um novo commit e push.
+1. Compilar o app e instalar no emulador.
+2. Sair do app e olhar a lista de aplicativos instalados no Android.
+3. Verificar se o ícone do robô foi substituído pelo ícone do médico (emoji) com fundo branco.
+4. Garantir que o ícone aparece corretamente tanto no formato quadrado (com cantos arredondados) quanto no formato totalmente circular.

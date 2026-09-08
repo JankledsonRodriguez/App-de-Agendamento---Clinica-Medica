@@ -1,7 +1,8 @@
-# Tarefas: Limpeza e Segurança do Repositório Git
+# Tarefas: Configuração de Ícone e Design Azul
 
-- [x] Criar arquivo `.gitignore` padrão
-- [x] Remover segredos de `DatabaseConfig.java`
-- [x] Instruir o usuário sobre a limpeza do cache do Git (`git rm --cached`)
-- [x] Instruir o usuário sobre como lidar com o Push Protection do GitHub
-- [x] Validar estrutura do repositório
+- [x] Criar recursos de fundo e frente para o ícone do app
+- [x] Configurar ícone adaptativo em `mipmap`
+- [x] Atualizar `AndroidManifest.xml` com o novo ícone
+- [x] Redesenhar a `SplashActivity` com fundo claro e elementos azuis
+- [x] Validar consistência visual do nome "Clinique+" em azul
+- [x] Gerar Walkthrough final
