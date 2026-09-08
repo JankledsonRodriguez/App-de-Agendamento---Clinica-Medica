@@ -4,6 +4,7 @@ package com.example.agendamento.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,9 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final TextInputEditText edtSenha;
 
   @NonNull
+  public final ProgressBar progressLogin;
+
+  @NonNull
   public final View topView;
 
   @NonNull
@@ -42,12 +46,14 @@ public final class ActivityLoginBinding implements ViewBinding {
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnIrParaCadastro, @NonNull MaterialButton btnLogin,
       @NonNull TextInputEditText edtEmail, @NonNull TextInputEditText edtSenha,
-      @NonNull View topView, @NonNull TextView txtEsqueceuSenha) {
+      @NonNull ProgressBar progressLogin, @NonNull View topView,
+      @NonNull TextView txtEsqueceuSenha) {
     this.rootView = rootView;
     this.btnIrParaCadastro = btnIrParaCadastro;
     this.btnLogin = btnLogin;
     this.edtEmail = edtEmail;
     this.edtSenha = edtSenha;
+    this.progressLogin = progressLogin;
     this.topView = topView;
     this.txtEsqueceuSenha = txtEsqueceuSenha;
   }
@@ -103,6 +109,12 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressLogin;
+      ProgressBar progressLogin = ViewBindings.findChildViewById(rootView, id);
+      if (progressLogin == null) {
+        break missingId;
+      }
+
       id = R.id.topView;
       View topView = ViewBindings.findChildViewById(rootView, id);
       if (topView == null) {
@@ -116,7 +128,7 @@ public final class ActivityLoginBinding implements ViewBinding {
       }
 
       return new ActivityLoginBinding((ConstraintLayout) rootView, btnIrParaCadastro, btnLogin,
-          edtEmail, edtSenha, topView, txtEsqueceuSenha);
+          edtEmail, edtSenha, progressLogin, topView, txtEsqueceuSenha);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

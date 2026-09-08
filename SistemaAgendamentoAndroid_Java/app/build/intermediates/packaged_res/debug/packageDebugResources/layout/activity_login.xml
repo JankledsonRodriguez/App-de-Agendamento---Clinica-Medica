@@ -88,16 +88,33 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogin"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:layout_marginTop="40dp"
-                android:text="@string/acessar_sistema"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-black"
-                app:cornerRadius="32dp" />
+                android:layout_marginTop="40dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/acessar_sistema"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-black"
+                    app:cornerRadius="32dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressLogin"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="24dp"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/white"
+                    android:elevation="10dp" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/txtEsqueceuSenha"

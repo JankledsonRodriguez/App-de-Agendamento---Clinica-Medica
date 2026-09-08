@@ -102,6 +102,7 @@ id navAgenda
 id navClientes
 id navInicio
 id navMenu
+id progressLogin
 id recyclerAgenda
 id recyclerAgendamentos
 id recyclerHistorico
@@ -191,6 +192,7 @@ string buscar_paciente_hint
 string cadastrar_medico
 string canceladas
 string carregando_informacoes
+string carregando_login
 string carregando_sua_agenda
 string codigo_6_digitos
 string configuracoes

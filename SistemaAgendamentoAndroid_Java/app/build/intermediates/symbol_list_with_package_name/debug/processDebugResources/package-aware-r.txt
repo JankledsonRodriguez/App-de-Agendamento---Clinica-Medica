@@ -3427,6 +3427,7 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id progressLogin
 id progress_circular
 id progress_horizontal
 id radio
@@ -3886,6 +3887,7 @@ string call_notification_ongoing_text
 string call_notification_screening_text
 string canceladas
 string carregando_informacoes
+string carregando_login
 string carregando_sua_agenda
 string character_counter_content_description
 string character_counter_overflowed_content_description

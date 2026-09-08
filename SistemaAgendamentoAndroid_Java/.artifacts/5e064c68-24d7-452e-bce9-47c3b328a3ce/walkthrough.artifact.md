@@ -1,30 +1,27 @@
-# Walkthrough - Relocação do Seletor de Tema e Correção de Cores
+# Walkthrough - Carregamento Premium no Botão de Login
 
-Otimizamos o sistema de temas do Clinique+, movendo o seletor para um local estratégico e corrigindo problemas de visibilidade no Modo Escuro.
+Refinamos o feedback de carregamento da tela de login, integrando-o de forma sofisticada diretamente no botão de ação principal.
 
-## O que foi finalizado
+## O que foi refinado
 
-### 1. Relocação do Botão de Tema
-- **O Problema:** O botão flutuante na `MainActivity` estava obstruindo informações importantes nas listas de pacientes e consultas.
-- **A Solução:** Removemos o botão global e o inserimos **exclusivamente na tela de Início (Painel)**.
-- **Posicionamento:** O botão de "pílula" (Day/Night Mode) agora fica fixo no **canto inferior direito** apenas da tela inicial, garantindo que as outras abas fiquem totalmente limpas.
+### 1. Integração Visual (Internal Loading)
+- **Design:** O `ProgressBar` agora está posicionado **dentro** do botão azul, alinhado à direita do texto. Isso cria um visual muito mais moderno e profissional, similar aos aplicativos de alta tecnologia.
+- **Contraste:** Alteramos a cor do círculo de carregamento para **branco**, garantindo visibilidade perfeita sobre o fundo azul do Clinique+.
 
-### 2. Correção de Cores (Dark Mode)
-- **O Problema:** Títulos como "Gestão da Clínica", "Pacientes" e a saudação "Olá, Dr." permaneciam pretos no Modo Escuro, tornando-os ilegíveis.
-- **A Solução:** Atualizamos todos os fragmentos para utilizarem cores dinâmicas (`@color/textPrimary` e `@color/textSecondary`).
-- **Resultado:** No Modo Escuro, todos esses textos agora mudam automaticamente para **Branco/Cinza Claro**, proporcionando contraste perfeito.
+### 2. Preservação da Identidade Visual
+- **Cor Persistente:** Corrigimos o comportamento onde o botão ficava "branco/cinza" ao ser clicado. Agora, ele mantém seu **azul vibrante original** durante todo o processo de carregamento.
+- **Controle de Estado:** Em vez de desabilitar o componente visual do Android (que altera a cor), controlamos o bloqueio de múltiplos cliques através de lógica interna no código Java.
 
-### 3. Limpeza e Estabilidade
-- Removemos a lógica de tema da `MainActivity.java` e a centralizamos no `InicioFragment.java`.
-- Realizamos um build completo para validar que a alternância manual de tema continua funcionando globalmente para todo o app.
+### 3. Fluidez e Resposta
+- O botão agora exibe o texto "Acessando..." enquanto o pequeno círculo gira ao lado, dando ao médico um feedback imediato de que o sistema está processando seu pedido sem saltos na interface.
 
 ## Como Visualizar
-1. Navegue pelas abas **Consultas** e **Pacientes**: Note que não há mais botões obstruindo a visão.
-2. Vá para o **Início**: O seletor de tema aparecerá no canto inferior direito.
-3. Clique para alternar: Observe que os títulos agora ficam brancos no modo noturno, corrigindo a falha anterior.
+1. Abra a tela de **Login**.
+2. Digite suas credenciais e clique em **ACESSAR SISTEMA**.
+3. Veja o botão permanecer azul, mudar o texto e exibir o carregamento branco logo ao lado, dentro do próprio botão.
 
 > [!SUCCESS]
-> **Build Status:** Green. O Clinique+ está agora mais limpo, funcional e com visual noturno 100% corrigido.
+> **Build Status:** Green. O Clinique+ agora possui um dos fluxos de login mais elegantes e responsivos.
 
 > [!TIP]
-> Essa mudança torna o uso do app muito mais agradável em recepções que precisam consultar listas longas de pacientes.
+> Essa integração evita que outros elementos da tela se movam quando o carregamento aparece, mantendo o layout estável.

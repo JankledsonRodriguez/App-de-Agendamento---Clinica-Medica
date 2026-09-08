@@ -81,6 +81,7 @@
     <string name="nascimento_label">Data de Nascimento</string>
     <string name="endereco_label">Endereço Completo</string>
     <string name="msg_paciente_sucesso">Paciente registrado com sucesso!</string>
+    <string name="carregando_login">Acessando...</string>
 
     <!-- Consultas & Pacientes -->
     <string name="gerencie_historico">Gerencie o histórico e novas consultas</string>

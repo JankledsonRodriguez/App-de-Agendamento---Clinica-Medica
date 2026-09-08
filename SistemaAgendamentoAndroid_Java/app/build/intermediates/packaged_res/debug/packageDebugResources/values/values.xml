@@ -27,6 +27,7 @@
     <string name="cadastrar_medico">Cadastrar Médico</string>
     <string name="canceladas">Canceladas</string>
     <string name="carregando_informacoes">Carregando dados médicos…</string>
+    <string name="carregando_login">Acessando...</string>
     <string name="carregando_sua_agenda">preparando seu prontuário…</string>
     <string name="codigo_6_digitos">Código de 6 dígitos</string>
     <string name="configuracoes">Configurações</string>
