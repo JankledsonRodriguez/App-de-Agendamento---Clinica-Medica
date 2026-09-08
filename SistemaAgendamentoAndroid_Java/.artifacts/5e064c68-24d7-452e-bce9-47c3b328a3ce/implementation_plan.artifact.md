@@ -1,28 +1,38 @@
-# Plano de Implementação: Ajuste de Escala e Alinhamento do Ícone
+# Plano de Implementação: Documentação Técnica e Operacional Exaustiva
 
-Este plano visa corrigir o problema de preenchimento do ícone do aplicativo, garantindo que a logo da clínica ocupe o espaço correto e preencha melhor as bordas, mantendo a visibilidade dentro da zona de segurança do Android.
+Este plano visa transformar o `README.md` em um manual completo e detalhado, cobrindo cada funcionalidade, tela, fluxo lógico e a arquitetura técnica por trás do **Clinique+**.
 
 ## Proposed Changes
 
-### [Recursos Visuais]
+### [Documentação]
 
-#### [MODIFY] [ic_launcher_foreground.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_foreground.xml)
-- Aumentar o tamanho da logo de 72dp para **108dp** (tamanho total do canvas do ícone adaptativo).
-- Isso permitirá que a logo preencha melhor os espaços laterais. O Android fará o corte automático das bordas conforme o formato do ícone do sistema (círculo ou quadrado).
+#### [MODIFY] [README.md](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/README.md)
+O novo documento será estruturado da seguinte forma:
 
----
-
-### [Configuração do Ícone]
-
-#### [MODIFY] [ic_launcher.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
-- Corrigir a referência do `foreground` de `@mipmap/ic_launcher_foreground` para **`@drawable/ic_launcher_foreground`**. Isso garantirá que o sistema utilize a nossa configuração personalizada que centraliza e escala a logo.
-
-#### [MODIFY] [ic_launcher_round.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
-- Realizar a mesma correção de referência para o ícone arredondado.
+1.  **Apresentação e Proposta de Valor:** Detalhamento do nicho médico.
+2.  **Arquitetura do Sistema:**
+    *   Explicação da stack (Java Nativo + JDBC).
+    *   Estrutura de pastas (Pacotes UI, Model, Repository, Database).
+    *   Diagrama lógico do fluxo de dados (App ➡️ JDBC ➡️ MySQL).
+3.  **Tour pelas Telas (Passo a Passo):**
+    *   **Acesso e Segurança:** Splash, Login, Cadastro de Médico e Recuperação de Senha.
+    *   **Gestão Estratégica:** Dashboard Início (Cálculo dinâmico de indicadores).
+    *   **Gestão Operacional:** Agenda Médica (Visões Diária/Semanal/Mensal, Reagendamento).
+    *   **Ciclo do Paciente:** Cadastro, Listagem em Grade e Prontuário Digital (Histórico).
+    *   **Vitrine Médica:** Especialidades Dinâmicas e Corpo Clínico.
+    *   **Suporte:** Relatórios e Configurações.
+4.  **Guia de Funcionalidades Detalhadas:**
+    *   Como funciona a troca de status (Agendado ➡️ Atendido).
+    *   Lógica por trás do Modo Escuro/Claro e persistência.
+    *   Filtros dinâmicos cruzados.
+5.  **Manual de Instalação e Configuração Técnica:**
+    *   Configuração do servidor XAMPP/Aiven.
+    *   Importação do Script SQL.
+    *   Ajuste de rede (Local vs Emulador).
 
 ## Verification Plan
 
 ### Manual Verification
-1. Reinstalar o aplicativo.
-2. Verificar na tela inicial se a logo agora preenche melhor o ícone e se o fundo azul está correto.
-3. Confirmar que a logo não está "sobrando" (espaços vazios excessivos nas laterais) e está bem distribuída.
+1. Ler o README completo para garantir que não há saltos lógicos.
+2. Validar se a descrição das telas condiz exatamente com o que foi implementado no código Java/XML.
+3. Verificar a clareza das instruções de instalação para um novo desenvolvedor.

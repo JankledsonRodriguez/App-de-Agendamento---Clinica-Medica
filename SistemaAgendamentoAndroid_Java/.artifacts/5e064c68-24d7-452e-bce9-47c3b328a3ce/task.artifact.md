@@ -1,5 +1,11 @@
-# Tarefas: Ajuste de Escala do Ícone
+# Tarefas: Documentação Técnica Exaustiva (README.md)
 
-- [x] Aumentar escala da logo para 108dp em `ic_launcher_foreground.xml`
-- [x] Corrigir referências em `ic_launcher.xml` e `ic_launcher_round.xml`
-- [x] Validar build e visualização
+- [x] Detalhar Arquitetura (Pacotes e Fluxo de Dados)
+- [x] Documentar Telas de Acesso (Login/Cadastro/Recuperação)
+- [x] Documentar Módulo Estratégico (Dashboard Interativo)
+- [x] Documentar Módulo Operacional (Agenda e Consultas)
+- [x] Detalhar Módulo de Pacientes (Prontuário Completo)
+- [x] Explicar Lógica de Especialidades Dinâmicas
+- [x] Descrever Funcionamento do Modo Escuro e Persistência
+- [x] Revisar Guia de Instalação e Configuração MySQL
+- [x] Validar formatação e gerar Walkthrough

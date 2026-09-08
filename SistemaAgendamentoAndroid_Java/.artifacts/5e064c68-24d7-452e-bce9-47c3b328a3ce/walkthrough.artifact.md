@@ -1,21 +1,36 @@
-# Walkthrough - Ajuste de Preenchimento do Ícone
+# Walkthrough - Documentação Técnica Exaustiva (Clinique+)
 
-Corrigimos a escala da logo no ícone do aplicativo, garantindo que ela preencha corretamente o espaço disponível sem deixar bordas excessivas, mantendo a harmonia visual.
+Finalizamos a elaboração do novo `README.md`, transformando-o de uma simples introdução em um **Manual Completo de Engenharia e Operação** do sistema Clinique+.
 
-## O que foi corrigido
+## O que foi detalhado no novo manual
 
-### 1. Correção de Referências
-- O sistema estava buscando o desenho da logo em um local genérico (`@mipmap/ic_launcher_foreground`).
-- Atualizamos os arquivos `ic_launcher.xml` e `ic_launcher_round.xml` para apontarem para o nosso arquivo de configuração personalizada em **`@drawable/ic_launcher_foreground`**. Isso garante que as regras de escala e centralização que criamos sejam aplicadas.
+### 1. Visão de Arquitetura
+Explicamos como o projeto foi estruturado em camadas (UI, Model, Repository, Database), detalhando a responsabilidade de cada pacote e o fluxo de dados entre o Android e o MySQL via JDBC.
 
-### 2. Ajuste de Escala (Preenchimento)
-- Aumentamos o tamanho da logo de 72dp para **108dp**.
-- **O que isso muda?** Agora a logo ocupa toda a área de desenho do ícone. O Android cuidará de recortar as pontinhas conforme o formato do seu celular (círculo ou quadrado), fazendo com que a logo pareça maior e mais integrada ao fundo azul, sem sobras vazias nas laterais.
+### 2. Tour pelas Telas e Lógica de Negócios
+Descrevemos o "passo a passo" do uso do sistema:
+- **Acesso:** Detalhes sobre a Splash, Login com feedback visual e o fluxo de segurança de 6 dígitos para recuperação de senha.
+- **Dashboard:** Como os indicadores estatísticos funcionam como atalhos inteligentes (Drill-down).
+- **Gestão Operacional:** Explicação sobre a Agenda 360° e as transições de status do paciente (Check-in até Atendido).
+- **Prontuário:** Detalhamento do histórico clínico e coleta de dados detalhados (CPF, Nascimento).
 
-## Como Visualizar
-1. Reinstale o aplicativo.
-2. Saia para a tela inicial.
-3. Você verá que a logo da clínica agora está maior e preenchendo melhor o ícone azul, dando um visual muito mais moderno.
+### 3. Funcionalidades de Experiência e UX
+Documentamos as melhorias de usabilidade:
+- **Dark Mode:** Como o seletor personalizado funciona e como a preferência é salva.
+- **Grade de Dados:** A mudança para o layout de 2 colunas para melhor aproveitamento de tela.
+- **Suporte a Mouse:** Detalhes técnicos sobre a rolagem configurada.
+
+### 4. Guia Técnico de Implantação
+Refinamos as instruções de:
+- Configuração do Banco de Dados.
+- Ajuste de IP para diferentes cenários (Emulador vs Celular Físico).
+- Credenciais de teste e boas práticas de segurança no Git.
+
+## Por que esta versão é superior?
+Diferente da versão anterior, este manual não apenas lista as telas, mas explica o **porquê** e o **como** cada funcionalidade foi construída. Isso confere um valor profissional imenso ao seu repositório no GitHub, servindo como uma prova técnica de alta qualidade.
 
 > [!SUCCESS]
-> **Build Status:** Green. O ícone foi ajustado para ter o máximo de preenchimento possível dentro das normas de design do Android.
+> **Status:** Documentação 100% atualizada e fiel ao estado atual do aplicativo.
+
+> [!TIP]
+> Você pode abrir o arquivo `README.md` na raiz do seu projeto agora mesmo para visualizar o resultado formatado e detalhado.
