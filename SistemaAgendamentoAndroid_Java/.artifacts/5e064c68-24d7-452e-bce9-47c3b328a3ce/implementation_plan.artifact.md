@@ -1,43 +1,28 @@
-# Plano de Implementação: Configuração do Ícone Oficial do App
+# Plano de Implementação: Ajuste de Escala e Alinhamento do Ícone
 
-Este plano visa substituir o ícone padrão do Android pelo ícone personalizado do **Clinique+**, utilizando a imagem do médico (emoji) fornecida pelo usuário, garantindo uma identidade visual consistente desde a tela de início do celular.
-
-## User Review Required
-
-> [!IMPORTANT]
-> Atualmente, o seu arquivo `AndroidManifest.xml` não possui nenhuma configuração de ícone, o que faz o sistema Android exibir o robô verde padrão. Vamos ativar essa configuração agora.
+Este plano visa corrigir o problema de preenchimento do ícone do aplicativo, garantindo que a logo da clínica ocupe o espaço correto e preencha melhor as bordas, mantendo a visibilidade dentro da zona de segurança do Android.
 
 ## Proposed Changes
 
-### [Recursos de Imagem]
+### [Recursos Visuais]
 
-#### [NEW] [ic_launcher_background.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_background.xml)
-- Definir um fundo branco limpo para o ícone adaptativo.
-
-#### [NEW] [ic_launcher_foreground.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_foreground.xml)
-- Um arquivo XML que encapsula a imagem `ic_doctor_profile` para centralizá-la corretamente no ícone.
+#### [MODIFY] [ic_launcher_foreground.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/drawable/ic_launcher_foreground.xml)
+- Aumentar o tamanho da logo de 72dp para **108dp** (tamanho total do canvas do ícone adaptativo).
+- Isso permitirá que a logo preencha melhor os espaços laterais. O Android fará o corte automático das bordas conforme o formato do ícone do sistema (círculo ou quadrado).
 
 ---
 
-### [Configuração do Ícone (Mipmap)]
+### [Configuração do Ícone]
 
-#### [NEW] [ic_launcher.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
-- Definir o ícone adaptativo (Foreground + Background) para versões modernas do Android.
+#### [MODIFY] [ic_launcher.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
+- Corrigir a referência do `foreground` de `@mipmap/ic_launcher_foreground` para **`@drawable/ic_launcher_foreground`**. Isso garantirá que o sistema utilize a nossa configuração personalizada que centraliza e escala a logo.
 
-#### [NEW] [ic_launcher_round.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
-- Definir a versão arredondada do ícone.
-
----
-
-### [Manifesto]
-
-#### [MODIFY] [AndroidManifest.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/AndroidManifest.xml)
-- Adicionar os atributos `android:icon="@mipmap/ic_launcher"` e `android:roundIcon="@mipmap/ic_launcher_round"` na tag `<application>`.
+#### [MODIFY] [ic_launcher_round.xml](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
+- Realizar a mesma correção de referência para o ícone arredondado.
 
 ## Verification Plan
 
 ### Manual Verification
-1. Compilar o app e instalar no emulador.
-2. Sair do app e olhar a lista de aplicativos instalados no Android.
-3. Verificar se o ícone do robô foi substituído pelo ícone do médico (emoji) com fundo branco.
-4. Garantir que o ícone aparece corretamente tanto no formato quadrado (com cantos arredondados) quanto no formato totalmente circular.
+1. Reinstalar o aplicativo.
+2. Verificar na tela inicial se a logo agora preenche melhor o ícone e se o fundo azul está correto.
+3. Confirmar que a logo não está "sobrando" (espaços vazios excessivos nas laterais) e está bem distribuída.

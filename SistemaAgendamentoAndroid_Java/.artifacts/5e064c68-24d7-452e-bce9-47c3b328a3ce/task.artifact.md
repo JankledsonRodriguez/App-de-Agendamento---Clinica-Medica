@@ -1,8 +1,5 @@
-# Tarefas: Configuração de Ícone e Design Azul
+# Tarefas: Ajuste de Escala do Ícone
 
-- [x] Criar recursos de fundo e frente para o ícone do app
-- [x] Configurar ícone adaptativo em `mipmap`
-- [x] Atualizar `AndroidManifest.xml` com o novo ícone
-- [x] Redesenhar a `SplashActivity` com fundo claro e elementos azuis
-- [x] Validar consistência visual do nome "Clinique+" em azul
-- [x] Gerar Walkthrough final
+- [x] Aumentar escala da logo para 108dp em `ic_launcher_foreground.xml`
+- [x] Corrigir referências em `ic_launcher.xml` e `ic_launcher_round.xml`
+- [x] Validar build e visualização
