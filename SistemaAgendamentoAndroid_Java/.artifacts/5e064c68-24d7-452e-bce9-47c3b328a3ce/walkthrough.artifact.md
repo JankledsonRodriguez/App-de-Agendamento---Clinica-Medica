@@ -1,27 +1,54 @@
-# Walkthrough - Carregamento Premium no Botão de Login
+# Walkthrough - Resolução de Segurança e Limpeza do Git
 
-Refinamos o feedback de carregamento da tela de login, integrando-o de forma sofisticada diretamente no botão de ação principal.
+Corrigimos a estrutura do seu repositório para evitar o vazamento de senhas e a inclusão de arquivos desnecessários de build no GitHub.
 
-## O que foi refinado
+## O que foi feito
 
-### 1. Integração Visual (Internal Loading)
-- **Design:** O `ProgressBar` agora está posicionado **dentro** do botão azul, alinhado à direita do texto. Isso cria um visual muito mais moderno e profissional, similar aos aplicativos de alta tecnologia.
-- **Contraste:** Alteramos a cor do círculo de carregamento para **branco**, garantindo visibilidade perfeita sobre o fundo azul do Clinique+.
+### 1. Criação do arquivo [.gitignore](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/.gitignore)
+- Criamos as regras para que o Git ignore automaticamente pastas como `build/`, `.gradle/`, `.idea/` e arquivos de sistema. Isso evita que segredos em arquivos temporários sejam enviados e deixa seu repositório muito mais leve.
 
-### 2. Preservação da Identidade Visual
-- **Cor Persistente:** Corrigimos o comportamento onde o botão ficava "branco/cinza" ao ser clicado. Agora, ele mantém seu **azul vibrante original** durante todo o processo de carregamento.
-- **Controle de Estado:** Em vez de desabilitar o componente visual do Android (que altera a cor), controlamos o bloqueio de múltiplos cliques através de lógica interna no código Java.
+### 2. Mascaramento em [DatabaseConfig.java](file:///C:/Users/jankledson59266826/AndroidStudioProjects/App-de-Agendamento---/SistemaAgendamentoAndroid_Java/app/src/main/java/com/example/agendamento/database/DatabaseConfig.java)
+- Removemos a senha e o host real que estavam expostos no código. Substituímos por marcadores como `SUA_SENHA_AQUI`.
+- **Ação necessária:** Você deve preencher os dados reais localmente no seu computador para o app funcionar, mas **nunca** comitá-los (faça o commit apenas com os marcadores).
 
-### 3. Fluidez e Resposta
-- O botão agora exibe o texto "Acessando..." enquanto o pequeno círculo gira ao lado, dando ao médico um feedback imediato de que o sistema está processando seu pedido sem saltos na interface.
+---
 
-## Como Visualizar
-1. Abra a tela de **Login**.
-2. Digite suas credenciais e clique em **ACESSAR SISTEMA**.
-3. Veja o botão permanecer azul, mudar o texto e exibir o carregamento branco logo ao lado, dentro do próprio botão.
+## Como Corrigir o Erro no seu Terminal
+
+Como o Git já "marcou" os arquivos ruins no passado, você precisa limpar o cache local para que as novas regras do `.gitignore` funcionem. Abra o **Terminal** do Android Studio e execute estes 3 comandos, um por um:
+
+### Passo 1: Limpar o cache do Git
+```bash
+git rm -r --cached .
+```
+> [!NOTE]
+> Esse comando não apaga seus arquivos do PC, apenas diz ao Git para parar de vigiar tudo o que foi ignorado no `.gitignore`.
+
+### Passo 2: Re-adicionar apenas os arquivos corretos
+```bash
+git add .
+```
+
+### Passo 3: Criar um novo commit limpo
+```bash
+git commit -m "Limpeza de segredos e arquivos de build"
+```
+
+### Passo 4: Enviar para o GitHub
+```bash
+git push origin main
+```
+
+---
+
+## Sobre o "Push Protection" do GitHub
+
+> [!CAUTION]
+> Se o GitHub continuar bloqueando o push mesmo após os comandos acima, é porque a senha ainda existe no **histórico (commits passados)**.
+>
+> **A solução definitiva recomendada pelo GitHub:**
+> 1. Acesse o link que apareceu no seu erro (começa com `https://github.com/JankledsonRodriguez/.../unblock-secret/...`).
+> 2. Lá você pode autorizar o push se tiver certeza de que a senha já foi alterada ou removida.
 
 > [!SUCCESS]
-> **Build Status:** Green. O Clinique+ agora possui um dos fluxos de login mais elegantes e responsivos.
-
-> [!TIP]
-> Essa integração evita que outros elementos da tela se movam quando o carregamento aparece, mantendo o layout estável.
+> **Status do Projeto:** Código limpo e seguindo as normas de segurança do GitHub.

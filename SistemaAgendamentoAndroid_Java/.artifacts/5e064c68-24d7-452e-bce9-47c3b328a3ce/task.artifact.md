@@ -1,7 +1,7 @@
-# Tarefas: Indicador de Carregamento no Login
+# Tarefas: Limpeza e Segurança do Repositório Git
 
-- [x] Adicionar string `carregando_login` em `strings.xml`
-- [x] Inserir `ProgressBar` no layout `activity_login.xml`
-- [x] Implementar lógica de exibição e bloqueio de botão em `LoginActivity.java`
-- [x] Validar build e funcionamento
-- [x] Gerar Walkthrough
+- [x] Criar arquivo `.gitignore` padrão
+- [x] Remover segredos de `DatabaseConfig.java`
+- [x] Instruir o usuário sobre a limpeza do cache do Git (`git rm --cached`)
+- [x] Instruir o usuário sobre como lidar com o Push Protection do GitHub
+- [x] Validar estrutura do repositório

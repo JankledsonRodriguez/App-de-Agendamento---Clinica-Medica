@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DatabaseConfig {
 
     // Conexão do Banco
-    public static final String URL = "jdbc:mysql://mysql-378a37e8-clinica-92d.d.aivencloud.com:26883/clinica_medica";
-    public static final String USUARIO = "avnadmin"; // super usuário do banco de dados
-    public static final String SENHA = "AVNS_a-6aLztou5YQrZ_YCiB";
+    private static final String URL = "jdbc:mysql://COLOQUE_SEU_HOST_AQUI:PORTA/agendamento?useSSL=false&allowPublicKeyRetrieval=true";
+    private static final String USUARIO = "SEU_USUARIO"; // super usuário do banco de dados
+    private static final String SENHA = "SUA_SENHA_AQUI";
 
     public static Connection conectar() {
         try {

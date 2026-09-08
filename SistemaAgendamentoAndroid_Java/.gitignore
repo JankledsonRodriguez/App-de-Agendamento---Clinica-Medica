@@ -1,0 +1,32 @@
+# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Android Studio files
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.apk
+*.aar
+*.jar
+
+# Logs
+log/
+*.log
+
+# Sensitive info
+config.xml
+credentials.xml
